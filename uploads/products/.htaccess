@@ -1,0 +1,3 @@
+Options -Indexes
+php_flag engine off
+AddType text/plain .php .phtml .php5 .phar
