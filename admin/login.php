@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/connectdb.php';
 require_once __DIR__ . '/../helpers/functions.php';
-
+require_once __DIR__ . '/../templates/admin_header.php';
 $msg = '';
 if ($_SERVER['REQUEST_METHOD']==='POST') {
   $email = trim($_POST['email'] ?? '');

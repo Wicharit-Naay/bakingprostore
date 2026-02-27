@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config/connectdb.php';
+require_once __DIR__ . '/config/db.php';
 
 $name = 'Admin';
 $email = '66010914115@msu.ac.th';

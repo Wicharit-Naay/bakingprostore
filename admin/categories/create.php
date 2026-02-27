@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../../config/connectdb.php';
 require_once __DIR__ . '/../../helpers/auth.php';
 require_once __DIR__ . '/../../helpers/functions.php';
-
 require_admin();
 
 $err = '';
@@ -30,20 +29,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 require_once __DIR__ . '/../../templates/admin_header.php';
 ?>
 
-<h2>เพิ่มประเภทสินค้า</h2>
+<div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+  <div>
+    <h2 class="h4 mb-0">เพิ่มประเภทสินค้า</h2>
+    <div class="text-muted small">เพิ่มหมวดหมู่เพื่อใช้จัดกลุ่มสินค้าในหน้าร้าน</div>
+  </div>
+  <a class="btn btn-outline-secondary" href="<?= BASE_URL ?>/admin/categories/index.php">
+    <i class="bi bi-arrow-left me-1"></i>กลับ
+  </a>
+</div>
 
-<div class="box">
-  <?php if($err) echo "<p style='color:red;'>".h($err)."</p>"; ?>
+<?php if ($err): ?>
+  <div class="alert alert-danger d-flex align-items-start gap-2" role="alert">
+    <i class="bi bi-exclamation-triangle"></i>
+    <div><?= h($err) ?></div>
+  </div>
+<?php endif; ?>
 
-  <form method="post">
-    <label>ชื่อประเภทสินค้า</label>
-    <input name="name" value="<?= h($name) ?>" placeholder="เช่น วัตถุดิบ, แก้ว, ภาชนะ">
+<div class="card shadow-sm">
+  <div class="card-body">
+    <form method="post" class="row g-3" autocomplete="off">
+      <div class="col-12">
+        <label class="form-label">ชื่อประเภทสินค้า</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-tag"></i></span>
+          <input
+            class="form-control"
+            name="name"
+            value="<?= h($name) ?>"
+            placeholder="เช่น วัตถุดิบ, แก้ว, ภาชนะ"
+            required
+          >
+        </div>
+      </div>
 
-    <div style="margin-top:10px;">
-      <button type="submit">บันทึก</button>
-      <a href="<?= BASE_URL ?>/admin/categories/index.php">กลับ</a>
-    </div>
-  </form>
+      <div class="col-12 d-flex flex-wrap gap-2">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-check2-circle me-1"></i>บันทึก
+        </button>
+        <a class="btn btn-light border" href="<?= BASE_URL ?>/admin/categories/index.php">
+          ยกเลิก
+        </a>
+      </div>
+    </form>
+  </div>
 </div>
 
 <?php require_once __DIR__ . '/../../templates/footer.php'; ?>

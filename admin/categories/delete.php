@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/connectdb.php';
 require_once __DIR__ . '/../../helpers/auth.php';
+
 require_admin();
 
 $id = (int)($_GET['id'] ?? 0);

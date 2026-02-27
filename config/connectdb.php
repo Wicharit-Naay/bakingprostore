@@ -4,7 +4,7 @@ require_once __DIR__ . '/config.php';
 $host = 'localhost';
 $db   = 'bakingprostore';
 $user = 'root';
-$pass = 'Pw_660109140636769';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
